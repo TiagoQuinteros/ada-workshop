@@ -1,0 +1,8 @@
+
+entity Cuenta {
+	id Long
+    balance Integer
+    nombre String
+    apellido String
+}
+
