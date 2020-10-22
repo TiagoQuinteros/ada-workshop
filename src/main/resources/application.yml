@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: local
+  jackson:
+    serialization:
+      write-dates-as-timestamps: false
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+      health:
+        show-details: always
+springdoc:
+  swagger-ui:
+    disable-swagger-default-url: true
+config:
+  table: adaConfig   
+library:
+  use:
+    database: true
+
+---
+spring:
+  profiles: local
+  datasource:
+    platform: hsqldb
+    continue-on-error: false
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  data:
+    mongodb:
+      port: 0
