@@ -15,22 +15,19 @@ management:
 springdoc:
   swagger-ui:
     disable-swagger-default-url: true
-config:
-  table: adaConfig   
-library:
-  use:
-    database: true
-
 ---
 spring:
   profiles: local
   datasource:
-    platform: hsqldb
-    continue-on-error: false
+    url: jdbc:h2:mem:testdb
+    driverClassName: org.h2.Driver
+    username: sa
+    password: password
   jpa:
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: create
     show-sql: true
-  data:
-    mongodb:
-      port: 0
+  h2.console.enabled: true
